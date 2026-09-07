@@ -71,20 +71,20 @@ class KeymapConsistencyTests(unittest.TestCase):
         self.assertEqual(qwerty_symbols[37], "&kp LCTRL")
         self.assertEqual(qwerty_symbols[38], "&kp RIGHT_GUI")
         self.assertEqual(
-            [colemak[index] for index in (20, 21)], ["&mo 3", "&mo 3"]
+            [colemak[index] for index in (20, 21)], ["&none", "&none"]
         )
         self.assertEqual(
-            [qwerty[index] for index in (20, 21)], ["&mo 3", "&mo 3"]
+            [qwerty[index] for index in (20, 21)], ["&none", "&none"]
         )
         self.assertEqual(
-            [keymap["layers"][3][index] for index in (6, 7, 20, 21)],
-            ["&bootloader", "&bootloader", "&bootloader", "&bootloader"],
+            [keymap["layers"][3][index] for index in (20, 21)],
+            ["&bootloader", "&bootloader"],
         )
         firmware = KEYMAP_DTS.read_text()
         self.assertIn("qwerty_layer", firmware)
         self.assertIn("qwerty_keypad_layer", firmware)
         self.assertIn(
-            "&kp TAB  &kp Q  &kp W  &kp E  &kp R  &kp T  &mo 3  &mo 3",
+            "&kp TAB  &kp Q  &kp W  &kp E  &kp R  &kp T  &none  &none",
             firmware,
         )
 

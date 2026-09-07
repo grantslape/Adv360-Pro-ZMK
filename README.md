@@ -89,7 +89,7 @@ Follow the programming instruction on page 8 of the [Quick Start Guide](https://
 
 ### Keyboard bootloader shortcut
 
-The Mod layer provides a deliberate, source-local bootloader shortcut for either half. On the half you want to flash, hold its innermost home-row key and press its innermost top-row key. This vertical two-key chord is difficult to trigger accidentally; because the bootloader binding is pressed on the selected half, it enters that half's bootloader without requiring a key held on the other half.
+The Mod layer's existing bootloader shortcut requires holding the inner top-row Mod key on the right half, then pressing the innermost home-row key on the half to flash. The target bootloader binding is source-local, so the left target enters the left bootloader and the right target enters the right bootloader. A same-half replacement has not been retained because it made the keys beside G and J momentary Mod keys.
 
 > Note: There are also physical reset buttons on both keyboards which can be used to enter and exit the bootloader mode. Their location is described in section 2.7 on page 9 in the [User Manual](https://kinesis-ergo.com/wp-content/uploads/Advantage360-ZMK-KB360-PRO-Users-Manual-v3-10-23.pdf) and use is described in section 5.9 on page 14. 
 
