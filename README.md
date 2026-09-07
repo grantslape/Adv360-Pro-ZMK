@@ -83,9 +83,13 @@ Follow the programming instruction on page 8 of the [Quick Start Guide](https://
 1. Turn on the left side keyboard with the switch.
 1. Connect the right side keyboard to USB to power it on.
 1. Press Mod+macro3 to put the right side into bootloader mode to attach it as a USB drive.
-1. Copy `right.uf2` to the mounted drive.
-1. Unplug the right side keyboard and turn it back on.
-1. Enjoy!
+2. Copy `right.uf2` to the mounted drive.
+3. Unplug the right side keyboard and turn it back on.
+4. Enjoy!
+
+### Keyboard bootloader shortcut
+
+The Mod layer already provides a deliberate, source-local bootloader shortcut for either half. Hold the inner top-row **Mod** key on the right half, then press the innermost home-row key on the half you want to flash. The two-key chord is deliberately difficult to trigger accidentally: the left target enters the left bootloader and the right target enters the right bootloader.
 
 > Note: There are also physical reset buttons on both keyboards which can be used to enter and exit the bootloader mode. Their location is described in section 2.7 on page 9 in the [User Manual](https://kinesis-ergo.com/wp-content/uploads/Advantage360-ZMK-KB360-PRO-Users-Manual-v3-10-23.pdf) and use is described in section 5.9 on page 14. 
 
