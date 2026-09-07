@@ -81,8 +81,22 @@ class KeymapConsistencyTests(unittest.TestCase):
             ["&bootloader", "&bootloader"],
         )
         firmware = KEYMAP_DTS.read_text()
-        self.assertIn("qwerty_layer", firmware)
-        self.assertIn("qwerty_keypad_layer", firmware)
+        firmware_layer_order = re.findall(
+            r"^        (default_layer|layer_keypad|layer_fn|layer_mod|qwerty_layer|qwerty_keypad_layer) \{\n            bindings = <",
+            firmware,
+            re.MULTILINE,
+        )
+        self.assertEqual(
+            firmware_layer_order,
+            [
+                "default_layer",
+                "layer_keypad",
+                "layer_fn",
+                "layer_mod",
+                "qwerty_layer",
+                "qwerty_keypad_layer",
+            ],
+        )
         self.assertIn(
             "&kp TAB  &kp Q  &kp W  &kp E  &kp R  &kp T  &none  &none",
             firmware,
