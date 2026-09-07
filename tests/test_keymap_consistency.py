@@ -77,8 +77,8 @@ class KeymapConsistencyTests(unittest.TestCase):
             [qwerty[index] for index in (20, 21)], ["&none", "&none"]
         )
         self.assertEqual(
-            [keymap["layers"][3][index] for index in (20, 21)],
-            ["&bootloader", "&bootloader"],
+            [keymap["layers"][3][index] for index in (6, 7, 20, 21)],
+            ["&bootloader", "&bootloader", "&bootloader", "&bootloader"],
         )
         firmware = KEYMAP_DTS.read_text()
         firmware_layer_order = re.findall(
