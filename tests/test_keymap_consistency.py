@@ -56,8 +56,8 @@ class KeymapConsistencyTests(unittest.TestCase):
         )
         colemak, qwerty, qwerty_symbols = keymap["layers"][0], *keymap["layers"][4:6]
 
-        self.assertEqual(colemak[6], "&to 4")
-        self.assertEqual(qwerty[6], "&to 0")
+        self.assertEqual(colemak[6], "&tog 4")
+        self.assertEqual(qwerty[6], "&tog 4")
         self.assertEqual([qwerty[index] for index in (29, 49, 50)], ["&kp A", "&kp C", "&kp V"])
         self.assertEqual(qwerty[48], "&kp X")
         self.assertEqual(qwerty[51], "&hm LG(B) B")
@@ -80,8 +80,13 @@ class KeymapConsistencyTests(unittest.TestCase):
             [keymap["layers"][3][index] for index in (6, 7, 20, 21)],
             ["&bootloader", "&bootloader", "&bootloader", "&bootloader"],
         )
-        self.assertIn("qwerty_layer", KEYMAP_DTS.read_text())
-        self.assertIn("qwerty_keypad_layer", KEYMAP_DTS.read_text())
+        firmware = KEYMAP_DTS.read_text()
+        self.assertIn("qwerty_layer", firmware)
+        self.assertIn("qwerty_keypad_layer", firmware)
+        self.assertIn(
+            "&kp TAB  &kp Q  &kp W  &kp E  &kp R  &kp T  &mo 3  &mo 3",
+            firmware,
+        )
 
 
 if __name__ == "__main__":
